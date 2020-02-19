@@ -12,7 +12,9 @@ public class Editoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEditoria;
 	private String nome;
-
+	
+	
+	public Editoria () {}
 	public Editoria(Long idEditoria, String nome) {
 		this.idEditoria = idEditoria;
 		this.nome = nome;
