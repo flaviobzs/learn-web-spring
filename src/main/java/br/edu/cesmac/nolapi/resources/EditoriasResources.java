@@ -31,7 +31,7 @@ public class EditoriasResources {
 	
 	@PutMapping(path = "/editorias")
 	public void editar(@RequestBody Editoria editoria) {
-		editoriasRepository.update(editoria);
+		editoriasRepository.save(editoria);
 	}
 	
 	@DeleteMapping(path = "/editorias")
