@@ -1,20 +1,24 @@
-package br.edu.cesmac.nolapi.resources.domain;
+package br.edu.cesmac.nolapi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Editoria {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEditoria;
+	
+	@NotBlank(message = "Nome da editoria não pode ser nulo")
 	private String nome;
 	
+	public Editoria() {
+	}
 	
-	public Editoria () {}
 	public Editoria(Long idEditoria, String nome) {
 		this.idEditoria = idEditoria;
 		this.nome = nome;
