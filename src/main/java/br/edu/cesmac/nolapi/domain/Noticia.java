@@ -24,7 +24,7 @@ public class Noticia {
 	private Editoria editoria;
 	
 	@NotBlank(message = "Não pode existir noticia sem um jornalista vinculado")
-	@OneToOne
+	@ManyToOne
 	private Jornalista jornalista;
 
 	public Long getIdNoticia() {

@@ -16,8 +16,8 @@ public class JornalistasService {
 
 	public Jornalista salvar(Jornalista jornalista) {
 		
-		if(buscarPorEmail(jornalista.getEmail()) == null) {			
-			jornalistaCriado = jornalistasRepository.save(jornalista);			
+		if(jornalistasRepository.findByEmail(jornalista.getEmail()) == null) {			
+			Jornalista jornalistaCriado = jornalistasRepository.save(jornalista);			
 		}		
 		
 		return jornalistaCriado;

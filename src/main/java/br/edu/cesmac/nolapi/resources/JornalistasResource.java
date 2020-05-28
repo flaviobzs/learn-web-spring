@@ -3,8 +3,8 @@ package br.edu.cesmac.nolapi.resources;
 import java.net.URI;
 import java.util.List;
 
-import br.edu.cesmac.nolapi.service.JornalistasService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.edu.cesmac.nolapi.domain.Jornalista;
-import br.edu.cesmac.nolapi.repository.JornalistasRepository;
+import br.edu.cesmac.nolapi.service.JornalistasService;
 
 @RestController
 @RequestMapping("/jornalistas")
@@ -34,7 +34,7 @@ public class JornalistasResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> salvar(@RequestBody Jornalista jornalista) {
+	public ResponseEntity<Void> salvar(@Validated @RequestBody Jornalista jornalista) {
 		jornalistasService.salvar(jornalista);
 
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
